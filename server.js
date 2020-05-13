@@ -15,9 +15,10 @@ server.use('/api/posts', postsRouter)
 
 function logger(req, res, next) {
   const method = req.method
-  const endpoint = req.originalUrl
+  const endpoint = req.url
+  const timestamp = Date.now()
 
-  console.log(`${method} to ${endpoint}`)
+  console.log(`${method} to ${endpoint} at ${timestamp}`)
 
   next()
 }
